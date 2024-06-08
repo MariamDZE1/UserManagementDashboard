@@ -82,7 +82,7 @@ Navigate to the registration page and fill in the required details to register a
 Login:
 
 Use the login page to authenticate using the registered email and password.
-Use the default admin credentials (email: sh.murjikneli@gmail.com, password: shota123) for the first login.
+Use the default admin credentials (email: mariami@gmail.com, password: 1234567) for the first login.
 User Management:
 
 After logging in, navigate to the user list to view all registered users.
