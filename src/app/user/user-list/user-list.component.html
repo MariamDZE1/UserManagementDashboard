@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>
+          <span *ngIf="!user.isEditing">{{ user.username }}</span>
+          <input *ngIf="user.isEditing" [(ngModel)]="user.editableUsername" class="form-control">
+        </td>
+        <td>
+          <span *ngIf="!user.isEditing">{{ user.email }}</span>
+          <input *ngIf="user.isEditing" [(ngModel)]="user.editableEmail" class="form-control">
+        </td>
+        <td>
+          <span *ngIf="user.showPassword">{{ user.password }}</span>
+          <span *ngIf="!user.showPassword">******</span>
+          <button class="btn btn-sm btn-outline-secondary" (click)="togglePasswordVisibility(user)">
+            {{ user.showPassword ? 'Hide' : 'Show' }}
+          </button>
+          <input *ngIf="user.isEditing" [(ngModel)]="user.editablePassword" class="form-control mt-1">
+        </td>
+        <td>
+          <button class="btn btn-sm btn-primary" (click)="editUser(user)" *ngIf="!user.isEditing">Edit</button>
+          <button class="btn btn-sm btn-success" (click)="saveChanges(user)" *ngIf="user.isEditing">Save</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
